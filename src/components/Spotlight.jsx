@@ -103,7 +103,7 @@ function Spotlight() {
           className="bg-green-500 text-white px-4 py-1 rounded hover:bg-green-600"
           onClick={() => handleAddClick(item.name)}
         >
-          ADD
+          View More
         </button>
       </div>
     </div>
