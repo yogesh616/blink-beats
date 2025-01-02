@@ -1,64 +1,115 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useCart } from '../context/Context';
+import React, { useState } from 'react';
+
+const categories = [
+  {
+    name: 'Media',
+    items: [
+      { name: 'Print Media' },
+      { name: 'Electronics Media' },
+      { name: 'Digital Media'},
+      { name: 'PR Services'}
+    ],
+  },
+  {
+    name: 'Advertising',
+    items: [
+      { name: 'Outdoor Advertising' },
+      { name: 'Signage Advertising' },
+      { name: 'Transit Advertising'}, 
+      { name: 'Non Traditional Advertising'}, 
+      { name: 'Hoarding Advertising' },
+    ],
+  },
+  {
+    name: 'Marketing',
+    items: [
+     { name: 'Branding Services' },
+      { name: 'Graphic Design' },
+      { name: 'LeafLets & Canopy'},
+    ],
+  },
+  {
+    name: 'Event',
+    items: [
+      { name: 'Conference' },
+      { name: 'Workshop' },
+      { name: 'Shows'},
+      { name: 'Exhibitions'},
+      { name: 'Cultural'},
+      { name: 'Sports'},
+    ],
+  },
+  { 
+    name: 'Entertainment',
+    items: [
+      { name: 'Podcast' },
+      { name: 'Ad Films' },
+      { name: 'Short Stories'},
+      { name: 'Web Series'},
+      { name: 'Content Creation'},
+      
+    ],
+  }
+];
 
 function Spotlight() {
-  const { mockApi } = useCart();
-  const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(true);
-  const [loadedImages, setLoadedImages] = useState({}); // Tracks image loading status
+  const [activeCategory, setActiveCategory] = useState(categories[0].name);
 
-  useEffect(() => {
-    if (mockApi && mockApi.length > 0) {
-      setIsLoading(false);
-    }
-  }, [mockApi]);
-
-  const handleImageLoad = (id) => {
-    setLoadedImages((prev) => ({ ...prev, [id]: true }));
+  const handleCategoryClick = (category) => {
+    setActiveCategory(category);
   };
 
+  const handleAddClick = (itemName) => {
+    alert(`${itemName} added to cart!`);
+  };
+
+  const activeItems = categories.find((category) => category.name === activeCategory)?.items || [];
+
   return (
-    <div className="w-full flex flex-col items-start justify-start">
-      <div>
-        <h2 className="text-lg ps-5 font-bold">Spotlight</h2>
+    <div className="flex">
+      {/* Sidebar */}
+      <div className="min-w-1/4 bg-gray-100 p-4">
+        <ul className="space-y-2">
+          {categories.map((category) => (
+            <li
+              key={category.name}
+              className={`p-2 rounded cursor-pointer ${
+                activeCategory === category.name ? 'bg-blue-500 text-white' : 'hover:bg-gray-200'
+              }`}
+              onClick={() => handleCategoryClick(category.name)}
+            >
+              {category.name}
+            </li>
+          ))}
+        </ul>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
-        {isLoading
-          ? Array.from({ length: 6 }).map((_, index) => (
-              <div
-                key={index}
-                className="border border-gray-300 rounded-lg p-4 shadow hover:shadow-lg transition duration-300 cursor-pointer animate-pulse"
-              >
-                <div className="bg-gray-300 rounded-t-lg w-full h-40 mb-4"></div>
-                <div className="bg-gray-300 h-6 w-3/4 mx-auto rounded"></div>
-              </div>
-            ))
-          : mockApi.map((item) => (
-              <div
-                key={item.id}
-                className="border border-gray-300 rounded-lg p-4 shadow hover:shadow-lg transition duration-300 cursor-pointer"
-                onClick={() => navigate(`/${item.id}`)}
-              >
-                <div className="relative w-full h-40 mb-4">
-                  {/* Skeleton loader */}
-                  {!loadedImages[item.id] && (
-                    <div className="absolute top-0 left-0 w-full h-full bg-gray-300 rounded-t-lg animate-pulse"></div>
-                  )}
-                  <img
-                    src={item.image}
-                    alt={item.category}
-                    className={`rounded-t-lg w-full h-40 object-cover scale-95 transition-all duration-300 ${
-                      loadedImages[item.id] ? 'hover:scale-100' : 'hidden'
-                    }`}
-                    onLoad={() => handleImageLoad(item.id)}
-                  />
-                </div>
-                <h2 className="text-xl font-semibold text-center hover:text-orange-400 transition-all duration-300">
-                  {item.category}
-                </h2>
-              </div>
-            ))}
+
+      {/* Main Content */}
+      <div className="w-3/4 p-4">
+        <h2 className="text-lg font-bold mb-4">{activeCategory}</h2>
+       <div
+  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 overflow-y-auto max-h-[400px]"
+>
+  {activeItems.map((item) => (
+    <div
+      key={item.name}
+      className="border rounded-lg p-4 flex flex-col items-center shadow hover:shadow-lg"
+    >
+      <div className="w-full h-40 bg-gray-200 rounded mb-4"></div>
+      <h3 className="text-md font-semibold text-center mb-2">{item.name}</h3>
+
+      <div className="flex justify-end items-center w-full">
+        <button
+          className="bg-green-500 text-white px-4 py-1 rounded hover:bg-green-600"
+          onClick={() => handleAddClick(item.name)}
+        >
+          ADD
+        </button>
+      </div>
+    </div>
+  ))}
+</div>
+
       </div>
     </div>
   );

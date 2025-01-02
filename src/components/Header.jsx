@@ -7,7 +7,8 @@ function Header() {
 
   return (
     <div className="mt-12">
-      <nav className="bg-white fixed w-full z-20 top-0 border-b border-gray-200">
+     
+      <nav className="bg-white  border-b border-gray-200">
         <div className="max-w-screen-xl flex items-center justify-between mx-auto px-4 sm:px-6 lg:px-8">
           {/* Logo and Location */}
           <div className="flex items-center space-x-3 rtl:space-x-reverse">
@@ -29,38 +30,7 @@ function Header() {
 
           {/* Navbar Menu for Desktop */}
           <div className="hidden md:flex items-center space-x-8">
-            <div className="flex space-x-6 text-lg font-semibold">
-              <a
-                onClick={() => navigate('/')}
-                className="cursor-pointer text-gray-900 hover:text-orange-300 transition duration-300"
-              >
-                Spotlight
-              </a>
-              <a
-                onClick={() => navigate('/cart')}
-                className="cursor-pointer text-gray-900 hover:text-orange-300 transition duration-300"
-              >
-                Cart
-              </a>
-              <a
-                href="#"
-                className="cursor-pointer text-gray-900 hover:text-orange-300 transition duration-300"
-              >
-                Studio
-              </a>
-              <a
-                href="#"
-                className="cursor-pointer text-gray-900 hover:text-orange-300 transition duration-300"
-              >
-                Help
-              </a>
-              <a
-                href="#"
-                className="cursor-pointer text-gray-900 hover:text-orange-300 transition duration-300"
-              >
-                Join Us
-              </a>
-            </div>
+           
             <div className="relative">
               <input
                 type="text"
@@ -158,46 +128,7 @@ function Header() {
                   <span>Cart</span>
                 </div>
               </li>
-              <li>
-                <a
-                  onClick={() => navigate('/')}
-                  className="block py-2 px-3 text-gray-900 rounded hover:text-orange-300 transition duration-300 cursor-pointer text-lg font-semibold"
-                >
-                  Spotlight
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block py-2 px-3 text-gray-900 rounded hover:text-orange-300 transition duration-300 cursor-pointer text-lg font-semibold"
-                >
-                  Cart
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block py-2 px-3 text-gray-900 rounded hover:text-orange-300 transition duration-300 cursor-pointer text-lg font-semibold"
-                >
-                  Studio
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block py-2 px-3 text-gray-900 rounded hover:text-orange-300 transition duration-300 cursor-pointer text-lg font-semibold"
-                >
-                  Help
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block py-2 px-3 text-gray-900 rounded hover:text-orange-300 transition duration-300 cursor-pointer text-lg font-semibold"
-                >
-                  Join Us
-                </a>
-              </li>
+             
             </ul>
           </div>
         )}
