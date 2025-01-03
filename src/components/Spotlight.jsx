@@ -88,12 +88,12 @@ function Spotlight() {
       <div className="w-3/4 py-1 px-2">
         <h2 className="text-lg font-bold mb-4">{activeCategory}</h2>
        <div
-  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 "
+  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 "
 >
   {activeItems.map((item) => (
     <div
       key={item.name}
-      className="border rounded-lg p-4 flex flex-col items-center shadow hover:shadow-lg max-w-52 transition-all duration-500"
+      className="border rounded-lg p-4 flex flex-col items-center shadow hover:shadow-lg max-w-56 transition-all duration-500"
     >
       <div className="w-full h-40 bg-gray-200 rounded mb-4 scale-90 hover:scale-100 transition-all duration-500"></div>
       <h3 className="text-md font-semibold text-center mb-2 ">{item.name}</h3>
