@@ -68,7 +68,7 @@ function Spotlight() {
   return (
     <div className="flex">
       {/* Sidebar */}
-      <div className="min-w-1/4 bg-gray-100 p-4">
+      <div className="min-w-1/4 bg-gray-100 p-4 mt-12">
         <ul className="space-y-2">
           {categories.map((category) => (
             <li
@@ -85,22 +85,22 @@ function Spotlight() {
       </div>
 
       {/* Main Content */}
-      <div className="w-3/4 p-4">
+      <div className="w-3/4 py-1 px-2">
         <h2 className="text-lg font-bold mb-4">{activeCategory}</h2>
        <div
-  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 overflow-y-auto max-h-[400px]"
+  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 "
 >
   {activeItems.map((item) => (
     <div
       key={item.name}
-      className="border rounded-lg p-4 flex flex-col items-center shadow hover:shadow-lg"
+      className="border rounded-lg p-4 flex flex-col items-center shadow hover:shadow-lg max-w-52 transition-all duration-500"
     >
-      <div className="w-full h-40 bg-gray-200 rounded mb-4"></div>
-      <h3 className="text-md font-semibold text-center mb-2">{item.name}</h3>
+      <div className="w-full h-40 bg-gray-200 rounded mb-4 scale-90 hover:scale-100 transition-all duration-500"></div>
+      <h3 className="text-md font-semibold text-center mb-2 ">{item.name}</h3>
 
       <div className="flex justify-end items-center w-full">
         <button
-          className="bg-green-500 text-white px-4 py-1 rounded hover:bg-green-600"
+          className="bg-green-500 text-white px-4 py-1 rounded hover:bg-green-600 cursor-pointer"
           onClick={() => handleAddClick(item.name)}
         >
           View More
