@@ -95,7 +95,7 @@ function Spotlight() {
       <div className="w-fll py-1 px-2">
         <h2 className="text-lg font-bold text-gray-700 mb-4 pb-3" style={{borderBottom: '2px solid  rgb(244, 246, 251)'}}>{activeCategory}</h2>
         <div
-  className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-5 gap-4 md:gap-6 lg:gap-10 p-2"
+  className="custom-grid grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-5 gap-4 md:gap-6 lg:gap-10 p-2"
   style={{
     background: "rgb(244, 246, 251)",
     padding: "8px",
@@ -105,7 +105,7 @@ function Spotlight() {
   {activeItems.map((item) => (
     <div
       key={item.name}
-      className="border rounded-lg p-4 flex flex-col items-center shadow hover:shadow-lg transition-all duration-500 lg:max-w-40 lg:max-h-72 bg-white w-full max-h-64"
+      className="border rounded-lg p-4 flex flex-col justify-between items-center shadow hover:shadow-lg transition-all duration-500 lg:max-w-40 lg:max-h-72 bg-white w-full max-h-64"
       
     >
       <div

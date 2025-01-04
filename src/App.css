@@ -1,0 +1,11 @@
+@media (min-width: 1023px) and (max-width: 1718px) {
+    .custom-grid {
+      grid-template-rows: repeat(auto-fit, minmax(180px, 1fr)); /* Adjust item width */
+      gap: 11rem; 
+      .border {
+       width: 10rem;
+    
+      }
+    }
+  }
+  
