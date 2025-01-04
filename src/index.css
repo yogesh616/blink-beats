@@ -1,3 +1,123 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+.sub-header__wrapper {
+    background-color: #fff;
+    box-shadow: 0 2px 3px 0 rgba(0,0,0,0.15);
+    position: relative;
+}
+
+.wrapper {
+    display: block !important;
+    float: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    clear: both !important
+}
+
+@media screen and (min-width: 1020px) and (max-width: 1260px) {
+    .wrapper {
+        width:980px
+    }
+}
+
+@media screen and (min-width: 1260px) {
+    .wrapper {
+        width:1220px
+    }
+}
+
+.sub-header__section--right {
+    display: table-cell
+}
+
+
+.cat-0-list {
+    color: #666;
+    font-size: 14px;
+    height: 47px;
+    margin-left: 17px !important;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding-left: 10px !important;
+    border-left: 2px solid  #f7f7f7;
+    border-right: 2px solid  #f7f7f7;
+    
+    
+    
+}
+@media (min-width: 768px) {
+    .cat-0-list {
+        justify-content: center;
+        gap: 40px; /* Larger gap for wider screens */
+    }
+}
+
+.cat-0-list__item {
+    cursor: pointer;
+    line-height: normal;
+    position: relative
+}
+
+.cat-0-list__item.show,.cat-0-list__item:hover {
+    background-color: #f7f7f7
+}
+
+.cat-0-list__item--active {
+    position: relative;
+    color: #000000;
+    cursor: default
+}
+
+.cat-0-list__item--active:after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #0c831f;
+    content: '';
+    z-index: 10000
+}
+
+.cat-0-list__item--active:hover {
+    background-color: transparent
+}
+
+.cat-0-list__item--active .cat-0-list__item--name {
+    cursor: default
+}
+
+.cat-0-list__item--hidden {
+    height: 0;
+    visibility: hidden;
+    overflow: hidden
+}
+
+.cat-0-list__item--name {
+    display: block;
+    padding: 14px 13px
+}
+
+
+
+
+.list-inline {
+    list-style: none;
+    padding-left: 0;
+}
+.list-unstyled {
+    margin-bottom: 0;
+    margin-top: 0;
+    list-style: none;
+    padding-left: 0;
+}
+.cat-0-list {
+    color: #666;
+    font-size: 14px;
+    height: 47px;
+    margin-left: 17px !important;
+}

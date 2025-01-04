@@ -66,16 +66,23 @@ function Spotlight() {
   const activeItems = categories.find((category) => category.name === activeCategory)?.items || [];
 
   return (
-    <div className="flex">
+    <div className="flex lg:px-56 "  >
       {/* Sidebar */}
-      <div className="min-w-1/4 bg-gray-100 p-4 mt-12">
-        <ul className="space-y-2">
+      <div className="min-w-1/4 bg-white p-4 mt-12 "
+        style={{border: '1px solid rgb(238, 238, 238)'}}
+      >
+        <ul className="space-y-2" style={{borderBottom: '1px solid #eee'}}>
           {categories.map((category) => (
             <li
               key={category.name}
-              className={`p-2 rounded cursor-pointer ${
-                activeCategory === category.name ? 'bg-blue-500 text-white' : 'hover:bg-gray-200'
-              }`}
+              style={{borderBottom: '1px solid rgb(238, 238, 238)'}}
+              className={`p-2 lg:min-w-64 text-sm max-w-20 min-h-16 rounded cursor-pointer 
+                ${
+                  activeCategory === category.name
+                    ? "bg-customGreen text-black lg:border-l-2 lg:border-r-0 border-r-2 border-green-700"
+                    : "hover:bg-customGreen"
+                }
+              `}
               onClick={() => handleCategoryClick(category.name)}
             >
               {category.name}
@@ -85,22 +92,44 @@ function Spotlight() {
       </div>
 
       {/* Main Content */}
-      <div className="w-3/4 py-1 px-2">
-        <h2 className="text-lg font-bold mb-4">{activeCategory}</h2>
-       <div
-  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 "
+      <div className="w-fll py-1 px-2">
+        <h2 className="text-lg font-bold text-gray-700 mb-4 pb-3" style={{borderBottom: '2px solid  rgb(244, 246, 251)'}}>{activeCategory}</h2>
+        <div
+  className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-5 gap-4 md:gap-6 lg:gap-10 p-2"
+  style={{
+    background: "rgb(244, 246, 251)",
+    padding: "8px",
+    overflowX: "hidden",
+  }}
 >
   {activeItems.map((item) => (
     <div
       key={item.name}
-      className="border rounded-lg p-4 flex flex-col items-center shadow hover:shadow-lg max-w-52 transition-all duration-500"
+      className="border rounded-lg p-4 flex flex-col items-center shadow hover:shadow-lg transition-all duration-500 lg:max-w-40 lg:max-h-72 bg-white w-full max-h-64"
+      
     >
-      <div className="w-full h-40 bg-gray-200 rounded mb-4 scale-90 hover:scale-100 transition-all duration-500"></div>
-      <h3 className="text-md font-semibold text-center mb-2 ">{item.name}</h3>
-
-      <div className="flex justify-end items-center w-full">
+      <div
+        className="w-full bg-gray-200 rounded-lg mb-4"
+        style={{
+          height: "120px",
+          transition: "transform 0.5s",
+        }}
+      ></div>
+      <h3
+        className="text-md font-semibold text-center mb-2"
+        style={{
+          fontSize: "14px",
+        }}
+      >
+        {item.name}
+      </h3>
+      <div className="flex justify-center items-center w-full">
         <button
-          className="bg-green-500 text-white px-4 py-1 rounded hover:bg-green-600 cursor-pointer"
+          className="px-4 py-1 text-sm rounded hover:text-green-600"
+          style={{
+            border: "1px solid rgb(49, 134, 22)",
+            color: "rgb(49, 134, 22)",
+          }}
           onClick={() => handleAddClick(item.name)}
         >
           View More
@@ -109,6 +138,7 @@ function Spotlight() {
     </div>
   ))}
 </div>
+
 
       </div>
     </div>
