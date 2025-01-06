@@ -79,7 +79,7 @@ function Spotlight() {
               className={`p-3 text-sm rounded cursor-pointer text-center font-medium transition-all 
                 ${
                   activeCategory === category.name
-                    ? "bg-green-100 border-l-4 border-green-500"
+                    ? "bg-green-100 border-r-4 lg:border-l-4 lg:border-r-0 border-green-500"
                     : "hover:bg-green-100"
                 }
               `}
