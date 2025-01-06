@@ -9,7 +9,7 @@ function Header() {
     <div className="mt-12">
      
       <nav className="bg-white  border-b border-gray-200">
-        <div className="max-w-screen-xl flex items-center justify-between mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-screen-xl flex items-center justify-between mx-auto px-4 sm:px-6 lg:px-16">
           {/* Logo and Location */}
           <div className="flex items-center space-x-3 rtl:space-x-reverse">
             <img
@@ -54,7 +54,7 @@ function Header() {
                 />
               </svg>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 ">
               <div className="flex items-center gap-2">
                 <i className="fa-solid fa-user"></i>
                 <span>Login</span>

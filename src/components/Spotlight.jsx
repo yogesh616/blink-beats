@@ -1,55 +1,54 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const categories = [
   {
-    name: 'Media',
+    name: "Media",
     items: [
-      { name: 'Print Media' },
-      { name: 'Electronics Media' },
-      { name: 'Digital Media'},
-      { name: 'PR Services'}
+      { name: "Print Media" },
+      { name: "Electronics Media" },
+      { name: "Digital Media" },
+      { name: "PR Services" },
     ],
   },
   {
-    name: 'Advertising',
+    name: "Advertising",
     items: [
-      { name: 'Outdoor Advertising' },
-      { name: 'Signage Advertising' },
-      { name: 'Transit Advertising'}, 
-      { name: 'Non Traditional Advertising'}, 
-      { name: 'Hoarding Advertising' },
+      { name: "Outdoor Advertising" },
+      { name: "Signage Advertising" },
+      { name: "Transit Advertising" },
+      { name: "Non Traditional Advertising" },
+      { name: "Hoarding Advertising" },
     ],
   },
   {
-    name: 'Marketing',
+    name: "Marketing",
     items: [
-     { name: 'Branding Services' },
-      { name: 'Graphic Design' },
-      { name: 'LeafLets & Canopy'},
+      { name: "Branding Services" },
+      { name: "Graphic Design" },
+      { name: "LeafLets & Canopy" },
     ],
   },
   {
-    name: 'Event',
+    name: "Event",
     items: [
-      { name: 'Conference' },
-      { name: 'Workshop' },
-      { name: 'Shows'},
-      { name: 'Exhibitions'},
-      { name: 'Cultural'},
-      { name: 'Sports'},
+      { name: "Conference" },
+      { name: "Workshop" },
+      { name: "Shows" },
+      { name: "Exhibitions" },
+      { name: "Cultural" },
+      { name: "Sports" },
     ],
   },
-  { 
-    name: 'Entertainment',
+  {
+    name: "Entertainment",
     items: [
-      { name: 'Podcast' },
-      { name: 'Ad Films' },
-      { name: 'Short Stories'},
-      { name: 'Web Series'},
-      { name: 'Content Creation'},
-      
+      { name: "Podcast" },
+      { name: "Ad Films" },
+      { name: "Short Stories" },
+      { name: "Web Series" },
+      { name: "Content Creation" },
     ],
-  }
+  },
 ];
 
 function Spotlight() {
@@ -63,24 +62,25 @@ function Spotlight() {
     alert(`${itemName} added to cart!`);
   };
 
-  const activeItems = categories.find((category) => category.name === activeCategory)?.items || [];
+  const activeItems =
+    categories.find((category) => category.name === activeCategory)?.items || [];
 
   return (
-    <div className="flex lg:px-56 "  >
+    <div className="flex w-full px-4 lg:px-16 lg:pe-12">
       {/* Sidebar */}
-      <div className="min-w-1/4 bg-white p-4 mt-12 "
-        style={{border: '1px solid rgb(238, 238, 238)'}}
+      <div
+        className="lg:w-1/6 bg-white py-2 mt-4"
+        style={{ border: "1px solid rgb(238, 238, 238)" }}
       >
-        <ul className="space-y-2" style={{borderBottom: '1px solid #eee'}}>
+        <ul className="space-y-2">
           {categories.map((category) => (
             <li
               key={category.name}
-              style={{borderBottom: '1px solid rgb(238, 238, 238)'}}
-              className={`p-2 lg:min-w-64 text-sm max-w-20 min-h-16 rounded cursor-pointer 
+              className={`p-3 text-sm rounded cursor-pointer text-center font-medium transition-all 
                 ${
                   activeCategory === category.name
-                    ? "bg-customGreen text-black lg:border-l-2 lg:border-r-0 border-r-2 border-green-700"
-                    : "hover:bg-customGreen"
+                    ? "bg-green-100 border-l-4 border-green-500"
+                    : "hover:bg-gray-100"
                 }
               `}
               onClick={() => handleCategoryClick(category.name)}
@@ -92,54 +92,53 @@ function Spotlight() {
       </div>
 
       {/* Main Content */}
-      <div className="w-fll py-1 px-2">
-        <h2 className="text-lg font-bold text-gray-700 mb-4 pb-3" style={{borderBottom: '2px solid  rgb(244, 246, 251)'}}>{activeCategory}</h2>
-        <div
-  className="custom-grid grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-5 gap-4 md:gap-6 lg:gap-10 p-2"
-  style={{
-    background: "rgb(244, 246, 251)",
-    padding: "8px",
-    overflowX: "hidden",
-  }}
->
-  {activeItems.map((item) => (
-    <div
-      key={item.name}
-      className="border rounded-lg p-4 flex flex-col justify-between items-center shadow hover:shadow-lg transition-all duration-500 lg:max-w-40 lg:max-h-72 bg-white w-full max-h-64"
-      
-    >
-      <div
-        className="w-full bg-gray-200 rounded-lg mb-4"
-        style={{
-          height: "120px",
-          transition: "transform 0.5s",
-        }}
-      ></div>
-      <h3
-        className="text-md font-semibold text-center mb-2"
-        style={{
-          fontSize: "14px",
-        }}
-      >
-        {item.name}
-      </h3>
-      <div className="flex justify-center items-center w-full">
-        <button
-          className="px-4 py-1 text-sm rounded hover:text-green-600"
-          style={{
-            border: "1px solid rgb(49, 134, 22)",
-            color: "rgb(49, 134, 22)",
-          }}
-          onClick={() => handleAddClick(item.name)}
+      <div className="lg:w-5/6 p-4">
+        <h2
+          className="text-lg font-bold text-gray-700 mb-4 pb-3"
+          style={{ borderBottom: "2px solid rgb(244, 246, 251)" }}
         >
-          View More
-        </button>
-      </div>
-    </div>
-  ))}
-</div>
-
-
+          {activeCategory}
+        </h2>
+        <div
+          className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-6"
+          style={{
+            background: "rgb(244, 246, 251)",
+            padding: "8px",
+          }}
+        >
+          {activeItems.map((item) => (
+            <div
+              key={item.name}
+              className="border rounded-lg p-4 flex flex-col justify-between bg-white shadow hover:shadow-lg transition-all duration-300 cursor-pointer"
+            >
+              {/* Placeholder for Product Image */}
+              <div
+                className="w-full bg-gray-200 rounded-lg mb-4"
+                style={{
+                  height: "120px",
+                }}
+              ></div>
+              {/* Product Info */}
+              <h3
+                className="lg:text-lg font-semibold text-center mb-2"
+                style={{
+                  fontSize: "10px",
+                }}
+              >
+                {item.name}
+              </h3>
+              {/* Add Button */}
+              <div className="flex items-center justify-center">
+                <button
+                  className="bg-green-600 text-white lg:text-sm px-2 py-1 rounded hover:bg-green-700"
+                  onClick={() => handleAddClick(item.name)}
+                >
+                  VIEW
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
